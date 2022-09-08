@@ -11,7 +11,11 @@ export class TodosService {
   getTodos(): Todo[] {
     return todos.concat(shareTodos());
   }
-  createTodos(...args: Todo[]): Todo[] {
-    return createShareTodos(...args);
+  createTodos(tasks: string[]): Todo[] {
+    const newTodos: Todo[] = tasks.map((task) => ({
+      message: task,
+      done: false,
+    }));
+    return createShareTodos(newTodos);
   }
 }
