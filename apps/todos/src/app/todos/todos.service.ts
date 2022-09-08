@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Todo } from '@nest-nx/data';
+import { createShareTodos, shareTodos, Todo } from '@nest-nx/data';
 
 const todos: Todo[] = [
   { message: 'Take out trash', done: false },
@@ -9,6 +9,9 @@ const todos: Todo[] = [
 @Injectable()
 export class TodosService {
   getTodos(): Todo[] {
-    return todos;
+    return todos.concat(shareTodos());
+  }
+  createTodos(...args: Todo[]): Todo[] {
+    return createShareTodos(...args);
   }
 }
