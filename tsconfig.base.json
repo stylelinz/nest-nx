@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nest-nx/data": ["libs/data/src/index.ts"]
+      "@nest-nx/data": ["libs/data/src/index.ts"],
+      "@nest-nx/utils/helpers": ["libs/utils/helpers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

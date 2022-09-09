@@ -51,6 +51,13 @@
         "jestConfig": "apps/todos/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx build todos", "docker build . -t todos"],
+        "parallel": false
+      }
     }
   },
   "tags": []
