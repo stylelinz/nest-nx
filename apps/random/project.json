@@ -1,16 +1,16 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/todos/src",
+  "sourceRoot": "apps/random/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/todos",
-        "main": "apps/todos/src/main.ts",
-        "tsConfig": "apps/todos/tsconfig.app.json",
-        "assets": ["apps/todos/src/assets"]
+        "outputPath": "dist/apps/random",
+        "main": "apps/random/src/main.ts",
+        "tsConfig": "apps/random/tsconfig.app.json",
+        "assets": ["apps/random/src/assets"]
       },
       "configurations": {
         "production": {
@@ -19,8 +19,8 @@
           "inspect": false,
           "fileReplacements": [
             {
-              "replace": "apps/todos/src/environments/environment.ts",
-              "with": "apps/todos/src/environments/environment.prod.ts"
+              "replace": "apps/random/src/environments/environment.ts",
+              "with": "apps/random/src/environments/environment.prod.ts"
             }
           ]
         }
@@ -29,11 +29,11 @@
     "serve": {
       "executor": "@nrwl/node:node",
       "options": {
-        "buildTarget": "todos:build"
+        "buildTarget": "random:build"
       },
       "configurations": {
         "production": {
-          "buildTarget": "todos:build:production"
+          "buildTarget": "random:build:production"
         }
       }
     },
@@ -41,21 +41,21 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/todos/**/*.ts"]
+        "lintFilePatterns": ["apps/random/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/todos"],
+      "outputs": ["coverage/apps/random"],
       "options": {
-        "jestConfig": "apps/todos/jest.config.ts",
+        "jestConfig": "apps/random/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "deploy": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": ["nx build todos", "echo \"app todos deployed!!\" "],
+        "commands": ["nx build random", "echo \"app random deployed!!\" "],
         "parallel": false
       }
     }

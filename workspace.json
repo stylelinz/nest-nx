@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "data": "libs/data",
+    "random": "apps/random",
     "todos": "apps/todos",
     "utils-helpers": "libs/utils/helpers"
   }
